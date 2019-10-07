@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, AsyncStorage } from 'react-native';
+import { StyleSheet, View, AsyncStorage, ActivityIndicator } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -11,7 +11,7 @@ import MiniGames from './components/screens/intro/MiniGames';
 import ShareSkills from './components/screens/intro/ShareSkills';
 import WhatYouNeed from './components/screens/intro/WhatYouNeed';
 import LastSlide from './components/screens/intro/LastSlide';
-import MainScreen from './components/screens/MainScreen';
+import DrawerScreen from './components/screens/DrawerScreen';
 
 // Create slides for intro
 const slides = [
@@ -52,17 +52,16 @@ export default class App extends Component {
         super(props);
         
         this.state = {
+            loading: true,
             showIntro: true,
         }
     }
     
     componentDidMount() {
         AsyncStorage.getItem('SHOW_INTRO').then(response => {
-            if (response === null)
-                return
-            
             this.setState({
-                showIntro: response === 'true',
+                loading: false,
+                showIntro: response !== null ? response === 'true' : true,
             })
         })
         
@@ -109,15 +108,15 @@ export default class App extends Component {
         )
     }
     
-    // Handle mounting and unmounting of slides (to play / pause videos)
+    // Handle mounting and unmounting of slides (to play/pause videos)
     _onSlideChange = (index, lastIndex) => {
         currentSlide = slides[index].reference.current
         lastSlide = slides[lastIndex].reference.current
         
-        if (currentSlide.handleMount != undefined)
+        if (currentSlide.handleMount !== undefined)
             currentSlide.handleMount()
         
-        if (lastSlide.handleUnmount != undefined)
+        if (lastSlide.handleUnmount !== undefined)
             lastSlide.handleUnmount()
     }
     
@@ -134,6 +133,14 @@ export default class App extends Component {
     }
     
     render() {
+        if (this.state.loading) {
+            return (
+                <View style = {styles.container}>
+                    <ActivityIndicator size = 'large' color = 'black' />
+                </View>
+            )
+        }
+        
         if (this.state.showIntro) {
             return (
                 <AppIntroSlider
@@ -149,11 +156,17 @@ export default class App extends Component {
             )
         }
 
-        return <MainScreen />
+        return <DrawerScreen />
     }
 }
     
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#FAFAFA',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
     navigationButton: {
         backgroundColor: 'rgba(0, 0, 0, 0.2)',
         borderRadius: 25,

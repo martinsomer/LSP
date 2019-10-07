@@ -8,28 +8,23 @@ const settings = [
         id: '0',
         text: 'Setting 1',
         value: 'Value 1',
-    },
-    {
+    }, {
         id: '1',
         text: 'Setting 2',
         value: 'Value 2',
-    },
-    {
+    }, {
         id: '2',
         text: 'Setting 3',
         value: 'Value 3',
-    },
-    {
+    }, {
         id: '3',
         text: 'Setting 4',
         value: 'Value 4',
-    },
-    {
+    }, {
         id: '4',
         text: 'Setting 5',
         value: 'Value 5',
-    },
-    {
+    }, {
         id: '5',
         text: 'Setting 6',
         value: 'Value 6',

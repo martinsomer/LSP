@@ -17,6 +17,7 @@ export default class GuidedVideos extends Component {
         return (
             <View style = {styles.container}>
                 <Video
+                    style = {styles.video}
                     source = {{ uri: 'https://seriousplayapp.com/videos/02_introduction_to_lsp_app.mp4' }}
                     rate = {1.0}
                     volume = {1.0}
@@ -25,7 +26,6 @@ export default class GuidedVideos extends Component {
                     shouldPlay = {false}
                     isLooping = {false}
                     useNativeControls = {true}
-                    style = {styles.video}
                     ref = 'player'
                 />
                 <View style = {styles.content}>

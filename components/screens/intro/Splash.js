@@ -7,9 +7,9 @@ export default class Splash extends Component {
         return (
             <View style = {styles.container}>
                 <Image
-                    source = {require('../../../assets/seriousplayapp.jpg')}
-                    resizeMode = 'contain'
                     style = {styles.image}
+                    source = {require('./../../../assets/seriousplayapp.jpg')}
+                    resizeMode = 'contain'
                 />
             </View>
         )

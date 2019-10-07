@@ -13,7 +13,6 @@ export default class Settings extends Component {
                     drawerButtonColor = {'black'}
                     headerTitleColor = {'black'}
                 />
-                <Text>Settings Placeholder</Text>
             </View>
         )
     }
@@ -23,7 +22,5 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#FAFAFA',
-        alignItems: 'center',
-        justifyContent: 'center',
     },
 });

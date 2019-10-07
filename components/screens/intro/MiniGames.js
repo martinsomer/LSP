@@ -7,9 +7,9 @@ export default class MiniGames extends Component {
         return (
             <View style = {styles.container}>
                 <Image
-                    source = {require('../../../assets/minigames.png')}
-                    resizeMode = 'contain'
                     style = {styles.image}
+                    source = {require('./../../../assets/minigames.png')}
+                    resizeMode = 'contain'
                 />
                 <View style = {styles.content}>
                     <Text style = {styles.title}>

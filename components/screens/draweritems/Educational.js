@@ -13,21 +13,23 @@ export default class Educational extends Component {
                     drawerButtonColor = {'white'}
                     headerTitleColor = {'white'}
                 />
-                <Text style = {styles.description}>
-                    Use LEGO Serious Play in classroom. Make your students play with LEGO bricks for new ideas, better classroom climate and learning.
-                </Text>
-                <Image
-                    source = {require('./../../../assets/ideation.png')}
-                    resizeMode = 'contain'
-                    style = {styles.image}
-                />
-                <View style = {styles.buttonContainer}>
-                    <TouchableOpacity style = {styles.button}>
-                        <Text style = {styles.buttonText}>Alone</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style = {styles.button}>
-                        <Text style = {styles.buttonText}>Team</Text>
-                    </TouchableOpacity>
+                <View style = {styles.content}>
+                    <Text style = {styles.description}>
+                        Use LEGO Serious Play in classroom. Make your students play with LEGO bricks for new ideas, better classroom climate and learning.
+                    </Text>
+                    <Image
+                        style = {styles.image}
+                        source = {require('./../../../assets/ideation.png')}
+                        resizeMode = 'contain'
+                    />
+                    <View style = {styles.buttonContainer}>
+                        <TouchableOpacity style = {styles.button}>
+                            <Text style = {styles.buttonText}>Alone</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style = {styles.button}>
+                            <Text style = {styles.buttonText}>Team</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
         )
@@ -38,13 +40,15 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#B06495',
+    },
+    content: {
+        flex: 1,
         padding: 10,
     },
     description: {
         textAlign: 'justify',
         fontSize: 20,
         color: 'white',
-        marginTop: 15,
     },
     image: {
         marginTop: 60,

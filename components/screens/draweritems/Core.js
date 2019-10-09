@@ -13,21 +13,23 @@ export default class Core extends Component {
                     drawerButtonColor = {'white'}
                     headerTitleColor = {'white'}
                 />
-                <Text style = {styles.description}>
-                    Learn the basics of LEGO Serious Play. How to use LEGO bricks for communication, creativiy, and new ideas.
-                </Text>
-                <Image
-                    source = {require('./../../../assets/communication.png')}
-                    resizeMode = 'contain'
-                    style = {styles.image}
-                />
-                <View style = {styles.buttonContainer}>
-                    <TouchableOpacity style = {styles.button}>
-                        <Text style = {styles.buttonText}>Alone</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style = {styles.button}>
-                        <Text style = {styles.buttonText}>Team</Text>
-                    </TouchableOpacity>
+                <View style = {styles.content}>
+                    <Text style = {styles.description}>
+                        Learn the basics of LEGO Serious Play. How to use LEGO bricks for communication, creativiy, and new ideas.
+                    </Text>
+                    <Image
+                        style = {styles.image}
+                        source = {require('./../../../assets/communication.png')}
+                        resizeMode = 'contain'
+                    />
+                    <View style = {styles.buttonContainer}>
+                        <TouchableOpacity style = {styles.button}>
+                            <Text style = {styles.buttonText}>Alone</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style = {styles.button}>
+                            <Text style = {styles.buttonText}>Team</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
         )
@@ -38,13 +40,15 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#F9C137',
+    },
+    content: {
+        flex: 1,
         padding: 10,
     },
     description: {
         textAlign: 'justify',
         fontSize: 20,
         color: 'white',
-        marginTop: 15,
     },
     image: {
         marginTop: 60,

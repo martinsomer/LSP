@@ -59,13 +59,15 @@ export default class Settings extends Component {
                     drawerButtonColor = {'black'}
                     headerTitleColor = {'black'}
                 />
-                <FlatList
-                    style = {styles.flatList}
-                    data = {settings}
-                    renderItem = {this._renderItem}
-                    keyExtractor = {item => item.id}
-                    ItemSeparatorComponent = {this._renderSeparator}
-                />
+                <View style = {styles.content}>
+                    <FlatList
+                        style = {styles.flatList}
+                        data = {settings}
+                        renderItem = {this._renderItem}
+                        keyExtractor = {item => item.id}
+                        ItemSeparatorComponent = {this._renderSeparator}
+                    />
+                </View>
             </View>
         )
     }
@@ -75,11 +77,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#FAFAFA',
+    },
+    content: {
+        flex: 1,
         padding: 10,
     },
     flatList: {
         flex: 1,
-        marginTop: 15,
     },
     item: {
         width: '100%',

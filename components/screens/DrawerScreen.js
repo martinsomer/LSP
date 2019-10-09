@@ -100,7 +100,7 @@ const RouteConfig = {
 
 const DrawerNavigatorConfig = {
     initialRouteName: 'Profile',
-    unmountInactiveRoutes: false,
+    unmountInactiveRoutes: true,
 }
 
 const DrawerNavigator = createDrawerNavigator(RouteConfig, DrawerNavigatorConfig)

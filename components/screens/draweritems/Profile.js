@@ -152,7 +152,6 @@ const styles = StyleSheet.create({
     },
     loadingAnimationContainer: {
         flex: 1,
-        backgroundColor: '#FAFAFA',
         alignItems: 'center',
         justifyContent: 'center',
     },

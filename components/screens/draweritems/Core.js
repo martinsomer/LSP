@@ -49,7 +49,7 @@ export default class Core extends Component {
                         headerTitleColor = {'white'}
                     />
                     <View style = {styles.loadingAnimationContainer}>
-                        <ActivityIndicator size = 'large' color = 'black' />
+                        <ActivityIndicator size = 'large' color = 'white' />
                     </View>
                 </View>
             )
@@ -113,7 +113,6 @@ const styles = StyleSheet.create({
     },
     loadingAnimationContainer: {
         flex: 1,
-        backgroundColor: '#FAFAFA',
         alignItems: 'center',
         justifyContent: 'center',
     },

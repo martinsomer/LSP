@@ -18,7 +18,7 @@ export default class LegoSeriousPlay extends Component {
             <View style = {styles.container}>
                 <Video
                     style = {styles.video}
-                    source = {{ uri: 'https://seriousplayapp.com/videos/01_introduction_what_is_lsp.mp4' }}
+                    source = {{ uri: 'https://seriousplayapp.com/videos/720p/01_introduction_what_is_lsp.mp4' }}
                     rate = {1.0}
                     volume = {1.0}
                     isMuted = {false}

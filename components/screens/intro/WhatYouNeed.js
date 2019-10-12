@@ -18,7 +18,7 @@ export default class WhatYouNeed extends Component {
             <View style = {styles.container}>
                 <Video
                     style = {styles.video}
-                    source = {{ uri: 'https://seriousplayapp.com/videos/03_core_what_do_you_need_for_lsp_app.mp4' }}
+                    source = {{ uri: 'https://seriousplayapp.com/videos/720p/03_core_what_do_you_need_for_lsp_app.mp4' }}
                     rate = {1.0}
                     volume = {1.0}
                     isMuted = {false}

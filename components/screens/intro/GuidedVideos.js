@@ -18,7 +18,7 @@ export default class GuidedVideos extends Component {
             <View style = {styles.container}>
                 <Video
                     style = {styles.video}
-                    source = {{ uri: 'https://seriousplayapp.com/videos/02_introduction_to_lsp_app.mp4' }}
+                    source = {{ uri: 'https://seriousplayapp.com/videos/720p/02_introduction_to_lsp_app.mp4' }}
                     rate = {1.0}
                     volume = {1.0}
                     isMuted = {false}

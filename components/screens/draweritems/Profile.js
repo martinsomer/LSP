@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, AsyncStorage, ActivityIndicator } from 'react-native';
 
 import Header from './../../Header';
+import ProfileView from './../progression/ProfileView';
 
 export default class Profile extends Component {
     constructor(props) {
@@ -133,7 +134,7 @@ export default class Profile extends Component {
                     drawerButtonColor = {'black'}
                     headerTitleColor = {'black'}
                 />
-                <Text>Profile View Placeholder</Text>
+                <ProfileView progress = {this.state.progressData} />
             </View>
         )
     }

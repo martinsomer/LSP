@@ -64,8 +64,6 @@ export default class App extends Component {
                 showIntro: response !== null ? response === 'true' : true,
             })
         })
-        
-        //AsyncStorage.clear()
     }
     
     // Icons for Next/Back/Done buttons

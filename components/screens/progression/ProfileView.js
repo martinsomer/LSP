@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default class BusinessTree extends Component {
+export default class ProfileView extends Component {
     render() {
         return (
             <View style = {styles.container}>
-                <Text>Business Progress Tree Placeholder</Text>
+                <Text>Profile View Placeholder</Text>
             </View>
         )
     }

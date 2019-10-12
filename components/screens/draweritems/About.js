@@ -84,13 +84,14 @@ const styles = StyleSheet.create({
     textContent: {
         color: '#979797',
         textAlign: 'justify',
+        marginBottom: 10,
     },
     buttonContainer: {
         alignItems: 'center',
     },
     button: {
         backgroundColor: '#1EB5F6',
-        marginTop: 15,
+        marginBottom: 15,
         borderRadius: 5,
         paddingTop: 10,
         paddingBottom: 10,

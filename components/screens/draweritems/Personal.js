@@ -1,16 +1,97 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, AsyncStorage, ActivityIndicator } from 'react-native';
 
 import Header from './../../Header';
 import PersonalTree from './../progression/PersonalTree';
 
 export default class Personal extends Component {
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            loading: true,
+            progressData: null,
+        }
+    }
+    
+    componentDidMount() {
+        AsyncStorage.getItem('PROGRESS_DATA').then(response => {
+            this.setState({
+                loading: false,
+                progressData: response !== null ? JSON.parse(response) : {},
+            })
+        })
+    }
     
     _goToProfileScreen = () => {
         this.props.navigation.navigate('Profile')
     }
     
+    _startModule = () => {
+        let progress = this.state.progressData
+        progress.personal = {}
+        
+        AsyncStorage.setItem('PROGRESS_DATA', JSON.stringify(progress))
+        
+        this.setState({
+            progressData: progress,
+        })
+    }
+    
     render() {
+        if (this.state.loading) {
+            return (
+                <View style = {styles.container}>
+                    <Header
+                        toggleDrawer = {this.props.navigation.toggleDrawer}
+                        headerTitleText = {'Personal'}
+                        drawerButtonColor = {'white'}
+                        headerTitleColor = {'white'}
+                    />
+                    <View style = {styles.loadingAnimationContainer}>
+                        <ActivityIndicator size = 'large' color = 'black' />
+                    </View>
+                </View>
+            )
+        }
+        
+        if (this.state.progressData.personal === undefined) {
+            return (
+                <View style = {styles.container}>
+                    <Header
+                        toggleDrawer = {this.props.navigation.toggleDrawer}
+                        headerTitleText = {'Personal'}
+                        drawerButtonColor = {'white'}
+                        headerTitleColor = {'white'}
+                    />
+                    <View style = {styles.content}>
+                        <Text style = {styles.description}>
+                            Use LEGO Serious Play for personal purpose. Build your goals and aspirations, build your habits and solve your problems.
+                        </Text>
+                        <Image
+                            style = {styles.image}
+                            source = {require('./../../../assets/goalsetting.png')}
+                            resizeMode = 'contain'
+                        />
+                        <View style = {styles.buttonContainer}>
+                            <TouchableOpacity
+                                style = {styles.button}
+                                onPress = {this._startModule}>
+                                    <Text style = {styles.buttonText}>Start</Text>
+                            </TouchableOpacity>
+                            {this.props.navigation.getParam('showBackButton', false) &&
+                                <TouchableOpacity
+                                    style = {styles.button}
+                                    onPress = {this._goToProfileScreen}>
+                                        <Text style = {styles.buttonText}>Back</Text>
+                                </TouchableOpacity>
+                            }
+                        </View>
+                    </View>
+                </View>
+            )
+        }
+        
         return (
             <View style = {styles.container}>
                 <Header
@@ -19,30 +100,10 @@ export default class Personal extends Component {
                     drawerButtonColor = {'white'}
                     headerTitleColor = {'white'}
                 />
-                <View style = {styles.content}>
-                    <Text style = {styles.description}>
-                        Use LEGO Serious Play for personal purpose. Build your goals and aspirations, build your habits and solve your problems.
-                    </Text>
-                    <Image
-                        style = {styles.image}
-                        source = {require('./../../../assets/goalsetting.png')}
-                        resizeMode = 'contain'
-                    />
-                    <View style = {styles.buttonContainer}>
-                        <TouchableOpacity style = {styles.button}>
-                            <Text style = {styles.buttonText}>Start</Text>
-                        </TouchableOpacity>
-                        {this.props.navigation.getParam('showBackButton', false) &&
-                            <TouchableOpacity
-                                style = {styles.button}
-                                onPress = {this._goToProfileScreen}>
-                                    <Text style = {styles.buttonText}>Back</Text>
-                            </TouchableOpacity>
-                        }
-                    </View>
-                </View>
+                <PersonalTree progress = {this.state.progressData.personal} />
             </View>
         )
+        
     }
 }
 
@@ -50,6 +111,12 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#88C9B3',
+    },
+    loadingAnimationContainer: {
+        flex: 1,
+        backgroundColor: '#FAFAFA',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     content: {
         flex: 1,

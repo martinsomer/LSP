@@ -14,5 +14,6 @@ export default class EducationalTree extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        padding: 10,
     },
 });

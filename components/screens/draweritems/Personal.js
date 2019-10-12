@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 import Header from './../../Header';
+import PersonalTree from './../progression/PersonalTree';
 
 export default class Personal extends Component {
+    
+    _goToProfileScreen = () => {
+        this.props.navigation.navigate('Profile')
+    }
+    
     render() {
         return (
             <View style = {styles.container}>
@@ -24,11 +30,15 @@ export default class Personal extends Component {
                     />
                     <View style = {styles.buttonContainer}>
                         <TouchableOpacity style = {styles.button}>
-                            <Text style = {styles.buttonText}>Alone</Text>
+                            <Text style = {styles.buttonText}>Start</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style = {styles.button}>
-                            <Text style = {styles.buttonText}>Team</Text>
-                        </TouchableOpacity>
+                        {this.props.navigation.getParam('showBackButton', false) &&
+                            <TouchableOpacity
+                                style = {styles.button}
+                                onPress = {this._goToProfileScreen}>
+                                    <Text style = {styles.buttonText}>Back</Text>
+                            </TouchableOpacity>
+                        }
                     </View>
                 </View>
             </View>

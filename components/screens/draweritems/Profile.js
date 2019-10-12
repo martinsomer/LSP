@@ -4,7 +4,6 @@ import { StyleSheet, Text, View, TouchableOpacity, Image, AsyncStorage, Activity
 import Header from './../../Header';
 
 export default class Profile extends Component {
-    
     constructor(props) {
         super(props);
         
@@ -20,6 +19,30 @@ export default class Profile extends Component {
                 loading: false,
                 progressData: response,
             })
+        })
+    }
+    
+    _goToCoreScreen = () => {
+        this.props.navigation.navigate('Core', {
+            showBackButton: true,
+        })
+    }
+    
+    _goToPersonalScreen = () => {
+        this.props.navigation.navigate('Personal', {
+            showBackButton: true,
+        })
+    }
+    
+    _goToEducationalScreen = () => {
+        this.props.navigation.navigate('Educational', {
+            showBackButton: true,
+        })
+    }
+    
+    _goToBusinessScreen = () => {
+        this.props.navigation.navigate('Business', {
+            showBackButton: true,
         })
     }
     
@@ -57,35 +80,43 @@ export default class Profile extends Component {
                     <View style = {styles.content}>        
                         <View style = {styles.pathSelectionContainer}>
                             <View style = {styles.pathSelectionRow}>
-                                <TouchableOpacity style = {styles.pathSelectionItem}>
-                                    <Image
-                                        style = {styles.image}
-                                        source = {require('./../../../assets/core.png')}
-                                        resizeMode = 'contain'
-                                    />
+                                <TouchableOpacity
+                                    style = {styles.pathSelectionItem}
+                                    onPress = {this._goToCoreScreen}>
+                                        <Image
+                                            style = {styles.image}
+                                            source = {require('./../../../assets/core.png')}
+                                            resizeMode = 'contain'
+                                        />
                                 </TouchableOpacity>
-                                <TouchableOpacity style = {styles.pathSelectionItem}>
-                                    <Image
-                                        style = {styles.image}
-                                        source = {require('./../../../assets/personal.png')}
-                                        resizeMode = 'contain'
-                                    />
+                                <TouchableOpacity
+                                    style = {styles.pathSelectionItem}
+                                    onPress = {this._goToPersonalScreen}>
+                                        <Image
+                                            style = {styles.image}
+                                            source = {require('./../../../assets/personal.png')}
+                                            resizeMode = 'contain'
+                                        />
                                 </TouchableOpacity>
                             </View>
                             <View style = {styles.pathSelectionRow}>
-                                <TouchableOpacity style = {styles.pathSelectionItem}>
-                                    <Image
-                                        style = {styles.image}
-                                        source = {require('./../../../assets/educational.png')}
-                                        resizeMode = 'contain'
-                                    />
+                                <TouchableOpacity
+                                    style = {styles.pathSelectionItem}
+                                    onPress = {this._goToEducationalScreen}>
+                                        <Image
+                                            style = {styles.image}
+                                            source = {require('./../../../assets/educational.png')}
+                                            resizeMode = 'contain'
+                                        />
                                 </TouchableOpacity>
-                                <TouchableOpacity style = {styles.pathSelectionItem}>
-                                    <Image
-                                        style = {styles.image}
-                                        source = {require('./../../../assets/business.png')}
-                                        resizeMode = 'contain'
-                                    />
+                                <TouchableOpacity
+                                        style = {styles.pathSelectionItem}
+                                        onPress = {this._goToBusinessScreen}>
+                                        <Image
+                                            style = {styles.image}
+                                            source = {require('./../../../assets/business.png')}
+                                            resizeMode = 'contain'
+                                        />
                                 </TouchableOpacity>
                             </View>
                         </View>

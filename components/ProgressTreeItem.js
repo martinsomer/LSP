@@ -2,21 +2,27 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 
 export default class ProgressTreeItem extends Component {
-    render() {
+    
+    _saveProgress = () => {
+        this.props.saveProgress(this.props.id)
+    }
+    
+    render() {    
         return (
             <View style = {styles.container}>
-                <TouchableOpacity style = {styles.badgeContainer}>
-                    {this.props.badgeImage &&
-                        <Image
-                            style = {styles.badge}
-                            resizeMode = 'contain'
-                            source = {this.props.badgeImage}
-                        />
-                    }
+                <TouchableOpacity style = {styles.badgeContainer}
+                    onPress = {this._saveProgress}>
+                        {this.props.image &&
+                            <Image
+                                style = {styles.badge}
+                                resizeMode = 'contain'
+                                source = {this.props.image}
+                            />
+                        }
                 </TouchableOpacity>
                 <View style = {styles.textContainer}>
                     <Text style = {styles.text}>
-                        {this.props.itemText}
+                        {this.props.text}
                     </Text>
                 </View>
             </View>

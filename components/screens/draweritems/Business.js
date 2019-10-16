@@ -29,8 +29,23 @@ export default class Business extends Component {
     
     _startModule = () => {
         let progress = this.state.progressData
-        progress.business = {}
+        progress.business = []
         
+        AsyncStorage.setItem('PROGRESS_DATA', JSON.stringify(progress))
+        
+        this.setState({
+            progressData: progress,
+        })
+    }
+    
+    _saveProgress = (item) => {
+        let progress = this.state.progressData
+        
+        if (progress.business.includes(item)) {
+            return
+        }
+        
+        progress.business.push(item)
         AsyncStorage.setItem('PROGRESS_DATA', JSON.stringify(progress))
         
         this.setState({
@@ -77,7 +92,7 @@ export default class Business extends Component {
                             <TouchableOpacity
                                 style = {styles.button}
                                 onPress = {this._startModule}>
-                                <Text style = {styles.buttonText}>Start</Text>
+                                    <Text style = {styles.buttonText}>Start</Text>
                             </TouchableOpacity>
                             {this.props.navigation.getParam('showBackButton', false) &&
                                 <TouchableOpacity
@@ -100,7 +115,10 @@ export default class Business extends Component {
                     drawerButtonColor = {'white'}
                     headerTitleColor = {'white'}
                 />
-                <BusinessTree progress = {this.state.progressData.business} />
+                <BusinessTree
+                    progress = {this.state.progressData}
+                    saveProgress = {this._saveProgress}
+                />
             </View>
         )
         

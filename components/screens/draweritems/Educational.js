@@ -29,8 +29,23 @@ export default class Educational extends Component {
     
     _startModule = () => {
         let progress = this.state.progressData
-        progress.educational = {}
+        progress.educational = []
         
+        AsyncStorage.setItem('PROGRESS_DATA', JSON.stringify(progress))
+        
+        this.setState({
+            progressData: progress,
+        })
+    }
+    
+    _saveProgress = (item) => {
+        let progress = this.state.progressData
+        
+        if (progress.educational.includes(item)) {
+            return
+        }
+        
+        progress.educational.push(item)
         AsyncStorage.setItem('PROGRESS_DATA', JSON.stringify(progress))
         
         this.setState({
@@ -77,7 +92,7 @@ export default class Educational extends Component {
                             <TouchableOpacity
                                 style = {styles.button}
                                 onPress = {this._startModule}>
-                                <Text style = {styles.buttonText}>Start</Text>
+                                    <Text style = {styles.buttonText}>Start</Text>
                             </TouchableOpacity>
                             {this.props.navigation.getParam('showBackButton', false) &&
                                 <TouchableOpacity
@@ -100,10 +115,12 @@ export default class Educational extends Component {
                     drawerButtonColor = {'white'}
                     headerTitleColor = {'white'}
                 />
-                <EducationalTree progress = {this.state.progressData.educational} />
+                <EducationalTree
+                    progress = {this.state.progressData}
+                    saveProgress = {this._saveProgress}
+                />
             </View>
-        )
-        
+        )   
     }
 }
 

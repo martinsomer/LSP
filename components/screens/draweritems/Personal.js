@@ -29,8 +29,23 @@ export default class Personal extends Component {
     
     _startModule = () => {
         let progress = this.state.progressData
-        progress.personal = {}
+        progress.personal = []
         
+        AsyncStorage.setItem('PROGRESS_DATA', JSON.stringify(progress))
+        
+        this.setState({
+            progressData: progress,
+        })
+    }
+    
+    _saveProgress = (item) => {
+        let progress = this.state.progressData
+        
+        if (progress.personal.includes(item)) {
+            return
+        }
+        
+        progress.personal.push(item)
         AsyncStorage.setItem('PROGRESS_DATA', JSON.stringify(progress))
         
         this.setState({
@@ -100,10 +115,12 @@ export default class Personal extends Component {
                     drawerButtonColor = {'white'}
                     headerTitleColor = {'white'}
                 />
-                <PersonalTree progress = {this.state.progressData.personal} />
+                <PersonalTree
+                    progress = {this.state.progressData}
+                    saveProgress = {this._saveProgress}
+                />
             </View>
         )
-        
     }
 }
 

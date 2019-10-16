@@ -29,8 +29,23 @@ export default class Core extends Component {
     
     _startModule = () => {
         let progress = this.state.progressData
-        progress.core = {}
+        progress.core = []
         
+        AsyncStorage.setItem('PROGRESS_DATA', JSON.stringify(progress))
+        
+        this.setState({
+            progressData: progress,
+        })
+    }
+    
+    _saveProgress = (item) => {
+        let progress = this.state.progressData
+        
+        if (progress.core.includes(item)) {
+            return
+        }
+        
+        progress.core.push(item)
         AsyncStorage.setItem('PROGRESS_DATA', JSON.stringify(progress))
         
         this.setState({
@@ -77,7 +92,7 @@ export default class Core extends Component {
                             <TouchableOpacity
                                 style = {styles.button}
                                 onPress = {this._startModule}>
-                                <Text style = {styles.buttonText}>Start</Text>
+                                    <Text style = {styles.buttonText}>Start</Text>
                             </TouchableOpacity>
                             {this.props.navigation.getParam('showBackButton', false) &&
                                 <TouchableOpacity
@@ -91,7 +106,7 @@ export default class Core extends Component {
                 </View>
             )
         }
-    
+        
         return (
             <View style = {styles.container}>
                 <Header
@@ -100,7 +115,10 @@ export default class Core extends Component {
                     drawerButtonColor = {'white'}
                     headerTitleColor = {'white'}
                 />
-                <CoreTree progress = {this.state.progressData.core} />
+                <CoreTree
+                    progress = {this.state.progressData}
+                    saveProgress = {this._saveProgress}
+                />
             </View>
         )
     }

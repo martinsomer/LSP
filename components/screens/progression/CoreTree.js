@@ -2,58 +2,51 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 
 import ProgressTreeItem from './../../ProgressTreeItem';
+import { GetBadges } from './../../Badges';
 
+const badges = GetBadges('core')
 const rows = [
     {
         id: '0',
         items: [
-            {
-                itemText: 'Etiquette',
-                //badgeImage: require('./../../../assets/badges/core/<image_name>.png'),
-            },
+            badges.etiquette,
         ]
     }, {
         id: '1',
         items: [
-            {
-                itemText: 'Build',
-            }, {
-                itemText: 'Storytelling',
-            }
+            badges.build,
+            badges.storytelling,
         ]
     }, {
         id: '2',
         items: [
-            {
-                itemText: 'Metaphor',
-            },
+            badges.methaphor,
         ]
     }, {
         id: '3',
         items: [
-            {
-                itemText: 'Mind game',
-            }, {
-                itemText: 'Collab game',
-            }, {
-                itemText: 'Practical',
-            }
+            badges.mindgame,
+            badges.collabgame,
+            badges.practical,
         ]
     },
 ]
 
 export default class CoreTree extends Component {
     
-    // It just works.
     _renderItem = ({item}) => {
+        const progress = this.props.progress.core
+        
         return (
             <View style = {styles.itemRowContainer}>
                 <View style = {styles.itemRow}>
                     {Object.keys(item.items).map(key =>
                         <ProgressTreeItem
                             key = {key}
-                            itemText = {item.items[key].itemText}
-                            badgeImage = {item.items[key].badgeImage}
+                            id = {item.items[key].id}
+                            text = {item.items[key].text}
+                            image = {progress.includes(item.items[key].id) ? item.items[key].image : undefined}
+                            saveProgress = {this.props.saveProgress}
                         />
                     )}
                 </View>
@@ -68,6 +61,7 @@ export default class CoreTree extends Component {
                 data = {rows}
                 renderItem = {this._renderItem}
                 keyExtractor = {item => item.id}
+                extraData = {this.props}
             />
         )
     }

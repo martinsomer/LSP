@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableHighlight, AsyncStorage } from 'react-native';
 
 import Header from './../../Header';
 
@@ -68,6 +68,15 @@ export default class Settings extends Component {
                         ItemSeparatorComponent = {this._renderSeparator}
                     />
                 </View>
+                
+                <Text style = {{width: '100%', textAlign: 'center', fontSize: 25, fontWeight: 'bold', marginTop: 20}}>DEBUG MENU</Text>
+                <TouchableHighlight style = {{borderWidth: 1}} onPress = {() => {AsyncStorage.removeItem('PROGRESS_DATA')}}>
+                    <Text style = {{color: '#ca0a0a', width: '100%', textAlign: 'center', fontSize: 20, margin: 5}}>Clear Progress Data</Text>
+                </TouchableHighlight>
+                <TouchableHighlight style = {{borderWidth: 1}} onPress = {() => {AsyncStorage.removeItem('SHOW_INTRO')}}>
+                    <Text style = {{color: '#ca0a0a', width: '100%', textAlign: 'center', fontSize: 20, margin: 5}}>Show Intro on Next Launch</Text>
+                </TouchableHighlight>
+                
             </View>
         )
     }

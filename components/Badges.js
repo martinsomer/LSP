@@ -168,3 +168,15 @@ export function GetBadges(module) {
             return badges
     }
 }
+
+export function GetBadgesAsArray() {
+    let allBadges = []
+    
+    Object.values(badges).forEach((module) => {
+        Object.values(module).forEach((item) => {
+            allBadges.push(item)
+        })
+    })
+    
+    return allBadges
+}

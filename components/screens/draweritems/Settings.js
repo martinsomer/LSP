@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
     content: {
         flex: 1,
         padding: 10,
+        paddingBottom: 0,
     },
     flatList: {
         flex: 1,

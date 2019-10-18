@@ -35,7 +35,7 @@ const rows = [
 export default class EducationalTree extends Component {
     
     _renderItem = ({item}) => {
-        const progress = this.props.progress.educational
+        const progress = this.props.progress
         
         return (
             <View style = {styles.itemRowContainer}>

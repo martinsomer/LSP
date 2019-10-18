@@ -35,7 +35,7 @@ const rows = [
 export default class BusinessTree extends Component {
     
     _renderItem = ({item}) => {
-        const progress = this.props.progress.business
+        const progress = this.props.progress
         
         return (
             <View style = {styles.itemRowContainer}>

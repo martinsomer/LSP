@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ScrollView, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import { GetBadgesAsArray } from './../../Badges';
@@ -9,34 +9,37 @@ const badges = GetBadgesAsArray()
 export default class BadgeView extends Component {
     
     _renderRow = (items) => {
-        let itemArray = []
+        let row = []
         
         items.forEach(function(item, index) {
-            itemArray.push(
-                <View style = {styles.imageContainer}
-                    key = {item.id}>
-                        <Image
-                            style = {styles.image}
-                            source = {item.image}
-                            resizeMode = 'contain'
-                        />
+            row.push(
+                <View style = {styles.itemContainer} key = {item.id}>
+                    <View style = {styles.imageContainer}>
+                            {p.includes(item.id) &&
+                                <Image
+                                    style = {styles.image}
+                                    source = {item.image}
+                                    resizeMode = 'contain'
+                                />
+                            }
+                    </View>
                 </View>
             )
         })
         
-        return itemArray
+        return row
     }
     
     _renderBadges = () => {
         let table = []
         
-        while (badges.length) {
+        for (let i = 0; i < badges.length; i += 4) {
             table.push(
                 <View style = {styles.rowContainer}
-                    key = {badges.length}>
+                    key = {i}>
                         <View
                             style = {styles.row}>
-                            {this._renderRow(badges.splice(0, 4))}
+                            {this._renderRow(badges.slice(i, i + 4))}
                         </View>
                 </View>
             )
@@ -63,15 +66,19 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     row: {
+        flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-around',
+    },
+    itemContainer: {
+        padding: 10,
+        width: '25%',
+        aspectRatio: 1,
+        padding: 10,
     },
     imageContainer: {
         flex: 1,
-        aspectRatio: 1,
-        padding: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
+        borderRadius: 50,
+        backgroundColor: 'rgba(0, 0, 0, 0.2)',
     },
     image: {
         width: '100%',

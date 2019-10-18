@@ -35,7 +35,7 @@ const rows = [
 export default class CoreTree extends Component {
     
     _renderItem = ({item}) => {
-        const progress = this.props.progress.core
+        const progress = this.props.progress
         
         return (
             <View style = {styles.itemRowContainer}>

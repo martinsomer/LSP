@@ -51,7 +51,7 @@ export default class ProfileView extends Component {
                         />
                     </View>
                     <Text style = {styles.sectionHeader}>Badges</Text>
-                    <BadgeView />
+                    <BadgeView progress = {this.props.progress} />
                 </ScrollView>
             </View>
         )

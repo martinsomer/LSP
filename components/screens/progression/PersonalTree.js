@@ -35,7 +35,7 @@ const rows = [
 export default class PersonalTree extends Component {
     
     _renderItem = ({item}) => {
-        const progress = this.props.progress.personal
+        const progress = this.props.progress
         
         return (
             <View style = {styles.itemRowContainer}>

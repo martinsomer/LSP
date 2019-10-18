@@ -18,7 +18,7 @@ export default class Core extends Component {
         AsyncStorage.getItem('PROGRESS_DATA').then(response => {
             this.setState({
                 loading: false,
-                progressData: response !== null ? JSON.parse(response) : {},
+                progressData: JSON.parse(response),
             })
         })
     }
@@ -29,7 +29,7 @@ export default class Core extends Component {
     
     _startModule = () => {
         let progress = this.state.progressData
-        progress.core = []
+        progress = []
         
         AsyncStorage.setItem('PROGRESS_DATA', JSON.stringify(progress))
         
@@ -41,11 +41,11 @@ export default class Core extends Component {
     _saveProgress = (item) => {
         let progress = this.state.progressData
         
-        if (progress.core.includes(item)) {
+        if (progress.includes(item)) {
             return
         }
         
-        progress.core.push(item)
+        progress.push(item)
         AsyncStorage.setItem('PROGRESS_DATA', JSON.stringify(progress))
         
         this.setState({
@@ -70,7 +70,7 @@ export default class Core extends Component {
             )
         }
         
-        if (this.state.progressData.core === undefined) {
+        if (this.state.progressData === null) {
             return (
                 <View style = {styles.container}>
                     <Header

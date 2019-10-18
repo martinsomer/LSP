@@ -18,7 +18,7 @@ export default class Profile extends Component {
         AsyncStorage.getItem('PROGRESS_DATA').then(response => {
             this.setState({
                 loading: false,
-                progressData: response,
+                progressData: response !== null ? response : null,
             })
         })
     }

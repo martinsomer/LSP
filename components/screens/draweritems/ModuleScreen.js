@@ -34,7 +34,7 @@ export default class ModuleScreen extends Component {
         })
     }
     
-    _saveProgress = (item) => {
+    _setItemAsCompleted = (item) => {
         let progress = this.state.progressData
         
         if (progress.includes(item)) {
@@ -92,8 +92,8 @@ export default class ModuleScreen extends Component {
                 {this._renderHeader()}
                 <ProgressTree
                     progress = {this.state.progressData}
-                    saveProgress = {this._saveProgress}
                     progressTree = {this.props.progressTree}
+                    setItemAsCompleted = {this._setItemAsCompleted}
                 />
             </View>
         )

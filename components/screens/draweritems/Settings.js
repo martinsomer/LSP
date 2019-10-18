@@ -1,52 +1,39 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableHighlight, AsyncStorage } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, AsyncStorage, Alert } from 'react-native';
 
 import Header from './../../Header';
 
-const settings = [
-    {
-        id: '0',
-        text: 'Setting 1',
-        value: 'Value 1',
-    }, {
-        id: '1',
-        text: 'Setting 2',
-        value: 'Value 2',
-    }, {
-        id: '2',
-        text: 'Setting 3',
-        value: 'Value 3',
-    }, {
-        id: '3',
-        text: 'Setting 4',
-        value: 'Value 4',
-    }, {
-        id: '4',
-        text: 'Setting 5',
-        value: 'Value 5',
-    }, {
-        id: '5',
-        text: 'Setting 6',
-        value: 'Value 6',
-    },
-]
-
 export default class Settings extends Component {
     
-    _renderSeparator = () => {
-        return <View style = {styles.separator}></View>
+    _clearProgressData = () => {
+        Alert.alert(
+            'Clear Progress Data',
+            'Are you sure you want to delete all your progress?',
+            [
+                {
+                    text: 'Cancel',
+                    onPress: () => {},
+                }, {
+                    text: 'OK',
+                    onPress: () => AsyncStorage.removeItem('PROGRESS_DATA')
+                },
+            ],
+        )
     }
     
-    _renderItem = ({item}) => {
-        return (
-            <View style = {styles.item}>
-                <Text style = {styles.itemText}>
-                    {item.text}
-                </Text>
-                <Text style = {styles.itemValue}>
-                    {item.value}
-                </Text>
-            </View>
+    _showIntroOnNextLaunch = () => {
+        Alert.alert(
+            'Show Intro on Next Launch',
+            'You will see the introduction again next time you open the app. Proceed?',
+            [
+                {
+                    text: 'Cancel',
+                    onPress: () => {},
+                }, {
+                    text: 'OK',
+                    onPress: () => AsyncStorage.removeItem('SHOW_INTRO')
+                },
+            ],
         )
     }
     
@@ -60,23 +47,28 @@ export default class Settings extends Component {
                     headerTitleColor = {'black'}
                 />
                 <View style = {styles.content}>
-                    <FlatList
-                        style = {styles.flatList}
-                        data = {settings}
-                        renderItem = {this._renderItem}
-                        keyExtractor = {item => item.id}
-                        ItemSeparatorComponent = {this._renderSeparator}
-                    />
+                    <View style = {styles.separator}></View>
+                    
+                    <TouchableOpacity
+                        style = {styles.setting}
+                        onPress = {this._clearProgressData}>
+                            <Text style = {styles.settingText}>
+                                Clear progress data
+                            </Text>
+                    </TouchableOpacity>
+
+                    <View style = {styles.separator}></View>
+
+                    <TouchableOpacity
+                        style = {styles.setting}
+                        onPress = {this._showIntroOnNextLaunch}>
+                            <Text style = {styles.settingText}>
+                                Show intro on next launch
+                            </Text>
+                    </TouchableOpacity>
+                    
+                    <View style = {styles.separator}></View>
                 </View>
-                
-                <Text style = {{width: '100%', textAlign: 'center', fontSize: 25, fontWeight: 'bold', marginTop: 20}}>DEBUG MENU</Text>
-                <TouchableHighlight style = {{borderWidth: 1}} onPress = {() => {AsyncStorage.removeItem('PROGRESS_DATA')}}>
-                    <Text style = {{color: '#ca0a0a', width: '100%', textAlign: 'center', fontSize: 20, margin: 5}}>Clear Progress Data</Text>
-                </TouchableHighlight>
-                <TouchableHighlight style = {{borderWidth: 1}} onPress = {() => {AsyncStorage.removeItem('SHOW_INTRO')}}>
-                    <Text style = {{color: '#ca0a0a', width: '100%', textAlign: 'center', fontSize: 20, margin: 5}}>Show Intro on Next Launch</Text>
-                </TouchableHighlight>
-                
             </View>
         )
     }
@@ -89,29 +81,19 @@ const styles = StyleSheet.create({
     },
     content: {
         flex: 1,
-        padding: 10,
-        paddingBottom: 0,
+        marginTop: 10,
     },
-    flatList: {
-        flex: 1,
-    },
-    item: {
+    setting: {
         width: '100%',
-        flexDirection: 'row',
+        marginVertical: 10,
     },
-    itemText: {
-        fontSize: 16,
-        flex: 1,
-    },
-    itemValue: {
-        textTransform: 'uppercase',
-        fontSize: 16,
+    settingText: {
+        marginLeft: 10,
+        fontSize: 18,
     },
     separator: {
         width: '100%',
         height: 1,
         backgroundColor: '#bfbfbf',
-        marginTop: 10,
-        marginBottom: 10,
     },
 });

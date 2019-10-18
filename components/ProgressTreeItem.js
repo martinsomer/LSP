@@ -3,8 +3,8 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 
 export default class ProgressTreeItem extends Component {
     
-    _saveProgress = () => {
-        this.props.saveProgress(this.props.id)
+    _setItemAsCompleted = () => {
+        this.props.setItemAsCompleted(this.props.id)
     }
     
     render() {    
@@ -12,7 +12,7 @@ export default class ProgressTreeItem extends Component {
             <View style = {styles.container}>
                 <TouchableOpacity
                     style = {styles.badgeContainer}
-                    onPress = {this._saveProgress}>
+                    onPress = {this._setItemAsCompleted}>
                         {this.props.image &&
                             <Image
                                 style = {styles.badge}

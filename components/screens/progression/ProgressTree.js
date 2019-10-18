@@ -17,7 +17,7 @@ export default class ProgressTree extends Component {
                             id = {item.items[key].id}
                             text = {item.items[key].text}
                             image = {progress.includes(item.items[key].id) ? item.items[key].image : undefined}
-                            saveProgress = {this.props.saveProgress}
+                            setItemAsCompleted = {this.props.setItemAsCompleted}
                         />
                     )}
                 </View>

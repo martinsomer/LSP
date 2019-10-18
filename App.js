@@ -3,7 +3,6 @@ import { StyleSheet, View, AsyncStorage, ActivityIndicator } from 'react-native'
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { Ionicons } from '@expo/vector-icons';
 
-// Import all intro slide components
 import Splash from './components/screens/intro/Splash';
 import LegoSeriousPlay from './components/screens/intro/LegoSeriousPlay';
 import GuidedVideos from './components/screens/intro/GuidedVideos';
@@ -13,7 +12,6 @@ import WhatYouNeed from './components/screens/intro/WhatYouNeed';
 import LastSlide from './components/screens/intro/LastSlide';
 import DrawerScreen from './components/screens/DrawerScreen';
 
-// Create slides for intro
 const slides = [
     {
         key: 'slide_1',
@@ -47,7 +45,6 @@ const slides = [
 ]
 
 export default class App extends Component {
-    
     constructor(props) {
         super(props);
         

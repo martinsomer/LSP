@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ScrollView, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, ScrollView, Image, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import AlignmentBars from './AlignmentBars';
@@ -50,7 +50,6 @@ export default class ProfileView extends Component {
                             emotional = {this.state.emotional}
                         />
                     </View>
-                    <Text style = {styles.sectionHeader}>Badges</Text>
                     <BadgeView progress = {this.props.progress} />
                 </ScrollView>
             </View>
@@ -84,15 +83,5 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         backgroundColor: 'rgba(0, 0, 0, 0.25)',
-    },
-    sectionHeader: {
-        width: '100%',
-        textAlign: 'center',
-        marginTop: 30,
-        marginBottom: 5,
-        color: '#888888',
-        fontWeight: 'bold',
-        textTransform: 'uppercase',
-        fontSize: 25,
     },
 });

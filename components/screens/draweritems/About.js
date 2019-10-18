@@ -17,7 +17,7 @@ export default class About extends Component {
         return (
             <View style = {styles.container}>
                 <Header
-                    toggleDrawer = {this.props.navigation.toggleDrawer}
+                    navigation = {this.props.navigation}
                     headerTitleText = {'About'}
                     drawerButtonColor = {'black'}
                     headerTitleColor = {'black'}

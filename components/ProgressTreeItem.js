@@ -10,7 +10,8 @@ export default class ProgressTreeItem extends Component {
     render() {    
         return (
             <View style = {styles.container}>
-                <TouchableOpacity style = {styles.badgeContainer}
+                <TouchableOpacity
+                    style = {styles.badgeContainer}
                     onPress = {this._saveProgress}>
                         {this.props.image &&
                             <Image

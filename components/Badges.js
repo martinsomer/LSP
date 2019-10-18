@@ -147,7 +147,7 @@ const badges = {
             text: 'Practical',
             image: require('./../assets/badges/placeholder.png'),
         },
-    }
+    },
 }
 
 export function GetBadges(module) {

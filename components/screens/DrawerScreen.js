@@ -4,12 +4,9 @@ import { createAppContainer } from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';
 
 import Profile from './draweritems/Profile';
-import Core from './draweritems/Core';
-import Personal from './draweritems/Personal';
-import Educational from './draweritems/Educational';
-import Business from './draweritems/Business';
 import Settings from './draweritems/Settings';
 import About from './draweritems/About';
+import { Core, Personal, Educational, Business } from './draweritems/Modules';
 
 const RouteConfig = {
     'Profile': {

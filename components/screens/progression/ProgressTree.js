@@ -1,38 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 
 import ProgressTreeItem from './../../ProgressTreeItem';
-import { GetBadges } from './../../Badges';
 
-const badges = GetBadges('core')
-const rows = [
-    {
-        id: '0',
-        items: [
-            badges.etiquette,
-        ]
-    }, {
-        id: '1',
-        items: [
-            badges.build,
-            badges.storytelling,
-        ]
-    }, {
-        id: '2',
-        items: [
-            badges.methaphor,
-        ]
-    }, {
-        id: '3',
-        items: [
-            badges.mindgame,
-            badges.collabgame,
-            badges.practical,
-        ]
-    },
-]
-
-export default class CoreTree extends Component {
+export default class ProgressTree extends Component {
     
     _renderItem = ({item}) => {
         const progress = this.props.progress
@@ -58,7 +29,7 @@ export default class CoreTree extends Component {
         return (
             <FlatList
                 style = {styles.container}
-                data = {rows}
+                data = {this.props.progressTree}
                 renderItem = {this._renderItem}
                 keyExtractor = {item => item.id}
                 extraData = {this.props}
@@ -71,7 +42,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 10,
-        paddingBottom: 0,
+        marginBottom: 20,
     },
     itemRowContainer: {
         width: '100%',

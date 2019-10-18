@@ -7,7 +7,7 @@ export default class Header extends Component {
     render() {
         return (
             <View style = {styles.container}>
-                <TouchableOpacity onPress = {this.props.toggleDrawer}>
+                <TouchableOpacity onPress = {this.props.navigation.toggleDrawer}>
                     <Ionicons
                         name = 'md-menu'
                         color = {this.props.drawerButtonColor}

@@ -29,7 +29,7 @@ export default class ProfileView extends Component {
                         <View style = {styles.avatar}>
                             <Image
                                 style = {styles.image}
-                                source = {require('./../../../assets/avatar.png')}
+                                source = {require('./../../../assets/profile/avatar.png')}
                                 resizeMode = 'contain'
                             />
                             <TouchableOpacity

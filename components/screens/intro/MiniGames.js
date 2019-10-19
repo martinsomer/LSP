@@ -8,7 +8,7 @@ export default class MiniGames extends Component {
             <View style = {styles.container}>
                 <Image
                     style = {styles.image}
-                    source = {require('./../../../assets/minigames.png')}
+                    source = {require('./../../../assets/intro/minigames.png')}
                     resizeMode = 'contain'
                 />
                 <View style = {styles.content}>

@@ -26,7 +26,7 @@ export default class WhatYouNeed extends Component {
         if (regex.test(email) !== true)
             return
         
-        //todo send email
+        //TODO send email
         
         alert('E-mail sent.')
     }

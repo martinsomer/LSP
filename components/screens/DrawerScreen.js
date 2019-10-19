@@ -1,7 +1,7 @@
 import React from 'react';
+import { StyleSheet, Image } from 'react-native';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
-import { Ionicons } from '@expo/vector-icons';
 
 import Profile from './draweritems/Profile';
 import Settings from './draweritems/Settings';
@@ -12,11 +12,11 @@ const RouteConfig = {
     'Profile': {
         screen: Profile,
         navigationOptions: {
-            drawerIcon: ({ tintColor }) => (
-                <Ionicons
-                    name = 'md-person'
-                    color = 'black'
-                    size = {24}
+            drawerIcon: () => (
+                <Image
+                    style = {styles.icon}
+                    source = {require('./../../assets/drawericons/profile.png')}
+                    resizeMode = 'contain'
                 />
             )
         }
@@ -24,11 +24,11 @@ const RouteConfig = {
     'Core': {
         screen: Core,
         navigationOptions: {
-            drawerIcon: ({ tintColor }) => (
-                <Ionicons
-                    name = 'md-battery-full'
-                    color = 'black'
-                    size = {24}
+            drawerIcon: () => (
+                <Image
+                    style = {styles.icon}
+                    source = {require('./../../assets/drawericons/core.png')}
+                    resizeMode = 'contain'
                 />
             )
         }
@@ -36,11 +36,11 @@ const RouteConfig = {
     'Personal': {
         screen: Personal,
         navigationOptions: {
-            drawerIcon: ({ tintColor }) => (
-                <Ionicons
-                    name = 'md-heart'
-                    color = 'black'
-                    size = {24}
+            drawerIcon: () => (
+                <Image
+                    style = {styles.icon}
+                    source = {require('./../../assets/drawericons/personal.png')}
+                    resizeMode = 'contain'
                 />
             )
         }
@@ -48,11 +48,11 @@ const RouteConfig = {
     'Educational': {
         screen: Educational,
         navigationOptions: {
-            drawerIcon: ({ tintColor }) => (
-                <Ionicons
-                    name = 'md-school'
-                    color = 'black'
-                    size = {24}
+            drawerIcon: () => (
+                <Image
+                    style = {styles.icon}
+                    source = {require('./../../assets/drawericons/educational.png')}
+                    resizeMode = 'contain'
                 />
             )
         }
@@ -60,11 +60,11 @@ const RouteConfig = {
     'Business': {
         screen: Business,
         navigationOptions: {
-            drawerIcon: ({ tintColor }) => (
-                <Ionicons
-                    name = 'md-briefcase'
-                    color = 'black'
-                    size = {24}
+            drawerIcon: () => (
+                <Image
+                    style = {styles.icon}
+                    source = {require('./../../assets/drawericons/business.png')}
+                    resizeMode = 'contain'
                 />
             )
         }
@@ -72,11 +72,11 @@ const RouteConfig = {
     'Settings': {
         screen: Settings,
         navigationOptions: {
-            drawerIcon: ({ tintColor }) => (
-                <Ionicons
-                    name = 'md-settings'
-                    color = 'black'
-                    size = {24}
+            drawerIcon: () => (
+                <Image
+                    style = {styles.icon}
+                    source = {require('./../../assets/drawericons/settings.png')}
+                    resizeMode = 'contain'
                 />
             )
         }
@@ -84,11 +84,11 @@ const RouteConfig = {
     'About': {
         screen: About,
         navigationOptions: {
-            drawerIcon: ({ tintColor }) => (
-                <Ionicons
-                    name = 'md-information-circle'
-                    color = 'black'
-                    size = {24}
+            drawerIcon: () => (
+                <Image
+                    style = {styles.icon}
+                    source = {require('./../../assets/drawericons/about.png')}
+                    resizeMode = 'contain'
                 />
             )
         }
@@ -102,3 +102,10 @@ const DrawerNavigatorConfig = {
 
 const DrawerNavigator = createDrawerNavigator(RouteConfig, DrawerNavigatorConfig)
 export default createAppContainer(DrawerNavigator)
+
+const styles = StyleSheet.create({
+    icon: {
+        width: 22,
+        tintColor: '#555555',
+    },
+});

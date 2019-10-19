@@ -43,7 +43,7 @@ export default class PathSelection extends Component {
                                 onPress = {this._goToCoreScreen}>
                                     <Image
                                         style = {styles.image}
-                                        source = {require('./../../../assets/core.png')}
+                                        source = {require('./../../../assets/pathselection/core.png')}
                                         resizeMode = 'contain'
                                     />
                             </TouchableOpacity>
@@ -52,7 +52,7 @@ export default class PathSelection extends Component {
                                 onPress = {this._goToPersonalScreen}>
                                     <Image
                                         style = {styles.image}
-                                        source = {require('./../../../assets/personal.png')}
+                                        source = {require('./../../../assets/pathselection/personal.png')}
                                         resizeMode = 'contain'
                                     />
                             </TouchableOpacity>
@@ -63,7 +63,7 @@ export default class PathSelection extends Component {
                                 onPress = {this._goToEducationalScreen}>
                                     <Image
                                         style = {styles.image}
-                                        source = {require('./../../../assets/educational.png')}
+                                        source = {require('./../../../assets/pathselection/educational.png')}
                                         resizeMode = 'contain'
                                     />
                             </TouchableOpacity>
@@ -72,7 +72,7 @@ export default class PathSelection extends Component {
                                     onPress = {this._goToBusinessScreen}>
                                     <Image
                                         style = {styles.image}
-                                        source = {require('./../../../assets/business.png')}
+                                        source = {require('./../../../assets/pathselection/business.png')}
                                         resizeMode = 'contain'
                                     />
                             </TouchableOpacity>

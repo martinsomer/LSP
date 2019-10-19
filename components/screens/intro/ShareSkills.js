@@ -8,7 +8,7 @@ export default class ShareSkills extends Component {
             <View style = {styles.container}>
                 <Image
                     style = {styles.image}
-                    source = {require('./../../../assets/share.png')}
+                    source = {require('./../../../assets/intro/share.png')}
                     resizeMode = 'contain'
                 />
                 <View style = {styles.content}>

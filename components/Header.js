@@ -7,9 +7,9 @@ export default class Header extends Component {
     render() {
         return (
             <View style = {styles.container}>
-                <TouchableOpacity onPress = {this.props.navigation.toggleDrawer}>
+                <TouchableOpacity onPress = {this.props.onPressAction}>
                     <Ionicons
-                        name = 'md-menu'
+                        name = {this.props.name}
                         color = {this.props.drawerButtonColor}
                         size = {45}
                         style = {{ backgroundColor: 'transparent' }}
@@ -28,10 +28,10 @@ export default class Header extends Component {
 const styles = StyleSheet.create({
     container: {
         paddingTop: Constants.statusBarHeight,
-        width: Dimensions.get('window').width,
+        width: '100%',
         flexDirection: 'row',
-        paddingLeft: 10,
-        paddingRight: 10,
+        paddingHorizontal: 12,
+        marginVertical: 7,
     },
     drawerButton: {
         

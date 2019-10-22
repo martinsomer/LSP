@@ -14,10 +14,9 @@ export default class ProgressTree extends Component {
                     {Object.keys(item.items).map(key =>
                         <ProgressTreeItem
                             key = {key}
-                            id = {item.items[key].id}
-                            text = {item.items[key].text}
-                            image = {progress.includes(item.items[key].id) ? item.items[key].image : undefined}
-                            setItemAsCompleted = {this.props.setItemAsCompleted}
+                            item = {item.items[key]}
+                            isCompleted = {progress.includes(item.items[key].id) ? true : false}
+                            startActivity = {this.props.startActivity}
                         />
                     )}
                 </View>

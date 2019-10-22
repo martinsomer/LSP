@@ -12,18 +12,18 @@ const progressTrees = {
             id: '1',
             items: [
                 badges.core.build,
-                badges.core.storytelling,
+                badges.core.stories,
             ]
         }, {
             id: '2',
             items: [
-                badges.core.methaphor,
+                badges.core.metaphor,
             ]
         }, {
             id: '3',
             items: [
                 badges.core.mindgame,
-                badges.core.collabgame,
+                badges.core.teamgame,
                 badges.core.practical,
             ]
         },
@@ -49,7 +49,7 @@ const progressTrees = {
             id: '3',
             items: [
                 badges.personal.mindgame,
-                badges.personal.collabgame,
+                badges.personal.teamgame,
                 badges.personal.practical,
             ]
         },
@@ -75,7 +75,7 @@ const progressTrees = {
             id: '3',
             items: [
                 badges.educational.mindgame,
-                badges.educational.collabgame,
+                badges.educational.teamgame,
                 badges.educational.practical,
             ]
         },
@@ -101,7 +101,7 @@ const progressTrees = {
             id: '3',
             items: [
                 badges.business.mindgame,
-                badges.business.collabgame,
+                badges.business.teamgame,
                 badges.business.practical,
             ]
         },

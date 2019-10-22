@@ -12,6 +12,7 @@ export default class ModuleScreen extends Component {
         this.state = {
             loading: true,
             progressData: null,
+            currentActivity: null,
         }
     }
     
@@ -34,14 +35,28 @@ export default class ModuleScreen extends Component {
         })
     }
     
+    _cancelActivity = () => {
+        this.setState({
+            currentActivity: null,
+        })
+    }
+    
+    _startActivity = (item) => {
+        const activity = item
+        this.setState({
+            currentActivity: item,
+        })
+    }
+    
     _setItemAsCompleted = (item) => {
-        let progress = this.state.progressData
+        const id = item.id
+        const progress = this.state.progressData
         
-        if (progress.includes(item)) {
+        if (progress.includes(id)) {
             return
         }
         
-        progress.push(item)
+        progress.push(id)
         AsyncStorage.setItem('PROGRESS_DATA', JSON.stringify(progress))
         
         this.setState({
@@ -52,8 +67,9 @@ export default class ModuleScreen extends Component {
     _renderHeader = () => {
         return (
             <Header
-                navigation = {this.props.navigation}
+                onPressAction = {this.props.navigation.toggleDrawer}
                 headerTitleText = {this.props.headerTitleText}
+                name = {'md-menu'}
                 drawerButtonColor = {'white'}
                 headerTitleColor = {'white'}
             />
@@ -87,13 +103,25 @@ export default class ModuleScreen extends Component {
             )
         }
         
+        if (this.state.currentActivity !== null) {
+            const Activity = this.state.currentActivity.activity.component
+            
+            return (
+                <Activity
+                    item = {this.state.currentActivity}
+                    cancelActivity = {this._cancelActivity}
+                    setItemAsCompleted = {this._setItemAsCompleted}
+                />
+            )
+        }
+        
         return (
             <View style = {[styles.container, {backgroundColor: this.props.backgroundColor}]}>
                 {this._renderHeader()}
                 <ProgressTree
                     progress = {this.state.progressData}
                     progressTree = {this.props.progressTree}
-                    setItemAsCompleted = {this._setItemAsCompleted}
+                    startActivity = {this._startActivity}
                 />
             </View>
         )

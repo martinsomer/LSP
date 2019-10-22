@@ -17,7 +17,8 @@ export default class About extends Component {
         return (
             <View style = {styles.container}>
                 <Header
-                    navigation = {this.props.navigation}
+                    onPressAction = {this.props.navigation.toggleDrawer}
+                    name = {'md-menu'}
                     headerTitleText = {'About'}
                     drawerButtonColor = {'black'}
                     headerTitleColor = {'black'}

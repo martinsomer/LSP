@@ -41,7 +41,8 @@ export default class Settings extends Component {
         return (
             <View style = {styles.container}>
                 <Header
-                    navigation = {this.props.navigation}
+                    onPressAction = {this.props.navigation.toggleDrawer}
+                    name = {'md-menu'}
                     headerTitleText = {'Settings'}
                     drawerButtonColor = {'black'}
                     headerTitleColor = {'black'}

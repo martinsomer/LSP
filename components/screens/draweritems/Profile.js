@@ -27,7 +27,8 @@ export default class Profile extends Component {
     _renderHeader = () => {
         return (
             <Header
-                navigation = {this.props.navigation}
+                onPressAction = {this.props.navigation.toggleDrawer}
+                name = {'md-menu'}
                 headerTitleText = {'Profile'}
                 drawerButtonColor = {'black'}
                 headerTitleColor = {'black'}

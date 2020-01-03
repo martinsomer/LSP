@@ -1,6 +1,11 @@
 // Core
 import IntroductionVideo from './activities/core/IntroductionVideo';
 
+// Educational
+import EducationalVideo from './activities/educational/EducationalVideo';
+import IntroductionScreen from './activities/educational/IntroductionScreen';
+import FAQ from './activities/educational/FAQ';
+
 // General
 import Mindgame from './activities/Mindgame';
 import Teamgame from './activities/Teamgame';
@@ -10,7 +15,7 @@ const badges = {
         etiquette: {
             id: 'core_etiquette',
             text: 'Etiquette',
-            image: require('./../assets/badges/placeholder.png'),
+            image: require('./../assets/badges/Core/Etiquette.png'),
             activity: {
                 component: IntroductionVideo,
                 subtitle: 'Learn how to make LEGO Serious Play sessions better for everyone.',
@@ -20,7 +25,7 @@ const badges = {
         build: {
             id: 'core_build',
             text: 'Build',
-            image: require('./../assets/badges/placeholder.png'),
+            image: require('./../assets/badges/Core/Build.png'),
             activity: {
                 component: IntroductionVideo,
                 subtitle: 'Learn where to start and how to experiment with LEGO bricks.',
@@ -30,7 +35,7 @@ const badges = {
         metaphor: {
             id: 'core_metaphor',
             text: 'Metaphor',
-            image: require('./../assets/badges/placeholder.png'),
+            image: require('./../assets/badges/Core/Metaphor.png'),
             activity: {
                 component: IntroductionVideo,
                 subtitle: 'Learn how to explore ideas, express emotions, and communicate.',
@@ -40,7 +45,7 @@ const badges = {
         stories: {
             id: 'core_stories',
             text: 'Stories',
-            image: require('./../assets/badges/placeholder.png'),
+            image: require('./../assets/badges/Core/Storytelling.png'),
             activity: {
                 component: IntroductionVideo,
                 subtitle: 'Learn how to find connections and tell stories about your creations.',
@@ -167,23 +172,34 @@ const badges = {
     educational: {
         tutorial: {
             id: 'educational_tutorial',
-            text: 'Tutorial',
+            text: 'Introduction',
             image: require('./../assets/badges/placeholder.png'),
+            activity: {
+                component: IntroductionScreen,
+            }
         },
         video: {
             id: 'educational_video',
             text: 'Video',
             image: require('./../assets/badges/placeholder.png'),
+            activity: {
+                component: EducationalVideo,
+                subtitle: 'What do you Need to Use LSP App?',
+                data: 'https://seriousplayapp.com/videos/720p/03_core_what_do_you_need_for_lsp_app.mp4',
+            }
         },
         infographic_1: {
             id: 'educational_infographic_1',
-            text: 'Infographic',
+            text: 'Use cases',
             image: require('./../assets/badges/placeholder.png'),
         },
         infographic_2: {
             id: 'educational_infographic_2',
-            text: 'Infographic',
+            text: 'FAQ',
             image: require('./../assets/badges/placeholder.png'),
+            activity: {
+                component: FAQ,
+            }
         },
         mindgame: {
             id: 'educational_mindgame',
@@ -197,7 +213,7 @@ const badges = {
         },
         practical: {
             id: 'educational_practical',
-            text: 'Practical',
+            text: 'Workshops',
             image: require('./../assets/badges/placeholder.png'),
         },
     },

@@ -5,6 +5,7 @@ import IntroductionVideo from './activities/core/IntroductionVideo';
 import EducationalVideo from './activities/educational/EducationalVideo';
 import IntroductionScreen from './activities/educational/IntroductionScreen';
 import FAQ from './activities/educational/FAQ';
+import Slider from './activities/educational/teamgame/Slider';
 
 // General
 import Mindgame from './activities/Mindgame';
@@ -210,6 +211,9 @@ const badges = {
             id: 'educational_teamgame',
             text: 'Team Game',
             image: require('./../assets/badges/placeholder.png'),
+            activity: {
+                component: Slider,
+            }
         },
         practical: {
             id: 'educational_practical',

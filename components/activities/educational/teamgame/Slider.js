@@ -9,6 +9,8 @@ import ShareModels from './ShareModels';
 import FreeYourMind from './FreeYourMind';
 import Build2 from './Build2';
 import DiscussGoals from './DiscussGoals';
+import Timer1 from './Timer1';
+import Timer2 from './Timer2';
 
 import Header from './../../../Header';
 
@@ -27,22 +29,30 @@ const slides = [
         reference: React.createRef(),
     }, {
         key: 'slide_4',
-        content: ShareModels,
+        content: Timer1,
         reference: React.createRef(),
     }, {
         key: 'slide_5',
-        content: FreeYourMind,
-        reference: React.createRef(),
-    }, {
-        key: 'slide_6',
-        content: Build2,
-        reference: React.createRef(),
-    }, {
-        key: 'slide_7',
         content: ShareModels,
         reference: React.createRef(),
     }, {
+        key: 'slide_6',
+        content: FreeYourMind,
+        reference: React.createRef(),
+    }, {
+        key: 'slide_7',
+        content: Build2,
+        reference: React.createRef(),
+    }, {
         key: 'slide_8',
+        content: Timer2,
+        reference: React.createRef(),
+    }, {
+        key: 'slide_9',
+        content: ShareModels,
+        reference: React.createRef(),
+    }, {
+        key: 'slide_10',
         content: DiscussGoals,
         reference: React.createRef(),
     }, 

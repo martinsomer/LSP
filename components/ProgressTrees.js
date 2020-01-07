@@ -58,7 +58,7 @@ const progressTrees = {
         {
             id: '0',
             items: [
-                badges.educational.tutorial,
+                badges.educational.introduction,
             ]
         }, {
             id: '1',
@@ -68,15 +68,15 @@ const progressTrees = {
         }, {
             id: '2',
             items: [
-                badges.educational.infographic_1,
-                badges.educational.infographic_2,
+                badges.educational.use_cases,
+                badges.educational.faq,
             ]
         }, {
             id: '3',
             items: [
                 badges.educational.mindgame,
                 badges.educational.teamgame,
-                badges.educational.practical,
+                badges.educational.workshops,
             ]
         },
     ],

@@ -6,6 +6,7 @@ import EducationalVideo from './activities/educational/EducationalVideo';
 import IntroductionScreen from './activities/educational/IntroductionScreen';
 import FAQ from './activities/educational/FAQ';
 import Slider from './activities/educational/teamgame/Slider';
+import UseCases from './activities/educational/UseCases';
 
 // General
 import Mindgame from './activities/Mindgame';
@@ -171,8 +172,8 @@ const badges = {
         
     },
     educational: {
-        tutorial: {
-            id: 'educational_tutorial',
+        introduction: {
+            id: 'educational_introduction',
             text: 'Introduction',
             image: require('./../assets/badges/placeholder.png'),
             activity: {
@@ -189,13 +190,16 @@ const badges = {
                 data: 'https://seriousplayapp.com/videos/720p/03_core_what_do_you_need_for_lsp_app.mp4',
             }
         },
-        infographic_1: {
-            id: 'educational_infographic_1',
+        use_cases: {
+            id: 'educational_user_cases',
             text: 'Use cases',
             image: require('./../assets/badges/placeholder.png'),
+            activity: {
+                component: UseCases,
+            }
         },
-        infographic_2: {
-            id: 'educational_infographic_2',
+        faq: {
+            id: 'educational_faq',
             text: 'FAQ',
             image: require('./../assets/badges/placeholder.png'),
             activity: {
@@ -215,8 +219,8 @@ const badges = {
                 component: Slider,
             }
         },
-        practical: {
-            id: 'educational_practical',
+        workshops: {
+            id: 'educational_workshops',
             text: 'Workshops',
             image: require('./../assets/badges/placeholder.png'),
         },
